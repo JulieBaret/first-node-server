@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Poppins:wght@500;700;900&display=swap');
+*{
+    /* padding: 0;
+    margin: 0; */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    position: top;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    padding: 20px;
+    width: fit-content;
+    max-width: 50vw;
+    color: whitesmoke;
+    text-align: center;
+    margin: 10px;
+}
+
+#quoteAPI {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+#addQuote {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: fit-content;
+    align-self: center;
+    margin-top: 10px;
+}

@@ -8,7 +8,16 @@ const app = express();
 
 const fetch = require('node-fetch');
 
-//cette appli Express contient quatre éléments de middleware
+//cette appli Express contient plusieurs middleware
+
+app.use(express.json());
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+});
 
 app.use((req, res, next) => {
     console.log('Requête reçue !');
@@ -23,7 +32,15 @@ app.use((req, res, next) => {
 });
 //ajoute le code d'état 201 à la réponse et passe l'exécution
 
-app.use((req, res, next) => {
+app.post('/', (req, res, next) => {
+    console.log(req.body);
+    res.status(201).json({
+        message: 'Objet créé !'
+    });
+    next();
+})
+
+app.get('/', (req, res, next) => {
     getQuote(res);
     next();
 });
